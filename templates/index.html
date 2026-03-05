@@ -12,8 +12,16 @@
         </p>
 
         <div class="hero-buttons">
-            <a href="{{ url_for('login') }}" class="btn-large">Start Analysis</a>
-            <a href="{{ url_for('register') }}" class="btn-outline">Create Account</a>
+           {% if current_user.is_authenticated %}
+
+<a href="{{ url_for('dashboard') }}" class="btn-large">Start Analysis</a>
+
+{% else %}
+
+<a href="{{ url_for('dashboard') }}" class="btn-large">Start Analysis</a>
+<a href="{{ url_for('register') }}" class="btn-outline">Create Account</a>
+
+{% endif %}
         </div>
     </div>
 </section>
@@ -43,7 +51,11 @@
 <!-- CTA SECTION -->
 <section class="cta">
     <h2>Take Control of Your Health with AI</h2>
+    {% if current_user.is_authenticated %}
+    <a href="{{ url_for('dashboard') }}" class="btn-large">Get Started</a>
+    {% else %}
     <a href="{{ url_for('login') }}" class="btn-large">Get Started</a>
+    {% endif %}
 </section>
 
 
@@ -51,5 +63,6 @@
 <footer class="footer">
     © 2026 MedAI | AI Healthcare System
 </footer>
+
 
 {% endblock %}
