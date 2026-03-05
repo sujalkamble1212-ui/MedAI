@@ -51,9 +51,9 @@ class History(db.Model):
     date = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
- with app.app_context():
+with app.app_context():
     db.create_all()
-     print("Database created successfully!")
+    print("Database created successfully!")
         
      
 @login_manager.user_loader
@@ -232,6 +232,7 @@ if __name__ == "__main__":
    
 
     app.run(debug=True)
+
 
 
 
