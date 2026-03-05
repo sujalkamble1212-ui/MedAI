@@ -218,10 +218,15 @@ def logout():
     logout_user()
     return redirect(url_for("home"))
 
+
+    with app.app_context():
+        db.create_all()
+        print("Database created successfully!")
 # ================= RUN =================
 
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
         print("Database created successfully!")
+
     app.run(debug=True)
