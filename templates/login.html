@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | Disease Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- Left Branding Panel -->
+    <div class="auth-left">
+      
+        <h1>Disease Prediction System</h1>
+        <p>AI-Powered Medical Diagnosis Assistance Platform</p>
+        <ul>
+            <li>✔ Secure Authentication</li>
+            <li>✔ Smart AI Predictions</li>
+            <li>✔ Medical Record History</li>
+        </ul>
+    </div>
+
+    <!-- Right Login Form -->
+    <div class="auth-right">
+        <div class="form-card">
+          <h6>🩺 MedAI</h6>
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Login to continue</p>
+
+         {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="error">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+            <form method="POST">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password </label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p class="switch-text">
+                Don’t have an account?
+                <a href="/register">Create Account</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

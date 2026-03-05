@@ -1,0 +1,163 @@
+/* ===== Dashboard Layout ===== */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7fc;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+
+.sidebar {
+    width: 250px;
+    background: #0f172a;
+    color: white;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.user {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #94a3b8;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #2563eb;
+    color: white;
+}
+
+.logout {
+    margin-top: auto;
+    background: #dc2626 !important;
+    text-align: center;
+}
+
+/* ===== Main Content ===== */
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    color: #1e3a8a;
+}
+
+/* ===== Symptom Grid ===== */
+
+.symptoms {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.symptoms label {
+    background: #eef2ff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.symptoms label:hover {
+    background: #dbeafe;
+}
+
+/* ===== Button ===== */
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #2563eb, #1d4ed8);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* ===== Result Box ===== */
+
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #e0f2fe;
+    border-left: 5px solid #0284c7;
+    font-size: 15px;
+}
+
+/* ===== History ===== */
+
+.history-item {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+}
+
+.history-item span {
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar nav {
+        display: none;
+    }
+}

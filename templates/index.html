@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Smart AI Disease Prediction</h1>
+        <p>
+            Analyze symptoms and get instant AI-powered medical insights 
+            with confidence percentage.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="{{ url_for('login') }}" class="btn-large">Start Analysis</a>
+            <a href="{{ url_for('register') }}" class="btn-outline">Create Account</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- FEATURES -->
+<section class="features">
+
+    <div class="feature-card">
+        <h3>⚡ Instant Prediction</h3>
+        <p>Fast and accurate AI medical results in seconds.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>📊 Confidence Score</h3>
+        <p>Clear probability percentage for better decisions.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🔐 Secure System</h3>
+        <p>Your health data stays private and protected.</p>
+    </div>
+
+</section>
+
+
+<!-- CTA SECTION -->
+<section class="cta">
+    <h2>Take Control of Your Health with AI</h2>
+    <a href="{{ url_for('login') }}" class="btn-large">Get Started</a>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    © 2026 MedAI | AI Healthcare System
+</footer>
+
+{% endblock %}

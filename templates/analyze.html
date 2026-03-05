@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <div class="dashboard-header">
+        <h2>AI Disease Prediction</h2>
+        <p>Welcome {{ user.username }} 👋 Select symptoms and get instant AI insights.</p>
+    </div>
+
+    <div class="card">
+
+        <h3>Select Symptoms</h3>
+
+        <!-- SEARCH BAR -->
+        <input type="text" id="search" placeholder="🔍 Search symptom..."
+               onkeyup="filterSymptoms()" class="search-box">
+
+        <!-- SCROLLABLE SYMPTOM LIST -->
+        <div class="symptoms-grid" id="symptomList">
+            {% for symptom in symptoms %}
+            <label class="symptom-item">
+                <input type="checkbox" class="symptom" value="{{ symptom }}">
+                <span>{{ symptom }}</span>
+            </label>
+            {% endfor %}
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="btn-group">
+            
+            <button onclick="predict()" class="btn-primary">Predict</button>
+        </div>
+
+        <!-- RESULTS -->
+        <div id="analysis" class="analysis-text"></div>
+        <div id="loading" class="hidden loading">🔄 AI analyzing...</div>
+
+        <div id="result" class="result-box"></div>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress hidden" id="bar">
+            <div id="progress"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+function getData(){
+let data={}
+document.querySelectorAll(".symptom").forEach(cb=>{
+data[cb.value]=cb.checked?1:0
+})
+return data
+}
+
+function analyze(){
+let count=Object.values(getData()).filter(v=>v==1).length
+document.getElementById("analysis").innerHTML="Selected Symptoms: "+count
+}
+
+function predict(){
+document.getElementById("loading").classList.remove("hidden")
+
+fetch("/predict",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(getData())
+})
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("loading").classList.add("hidden")
+
+document.getElementById("result").innerHTML=
+"<h3>Prediction: "+data.predicted_disease+"</h3>"
+
+document.getElementById("bar").classList.remove("hidden")
+document.getElementById("progress").style.width=data.probability+"%"
+document.getElementById("progress").innerHTML=data.probability+"%"
+})
+}
+
+function filterSymptoms(){
+let input=document.getElementById("search").value.toLowerCase();
+let items=document.querySelectorAll(".symptom-item");
+
+items.forEach(item=>{
+let text=item.innerText.toLowerCase();
+item.style.display=text.includes(input)?"block":"none";
+});
+}
+</script>
+
+{% endblock %}
