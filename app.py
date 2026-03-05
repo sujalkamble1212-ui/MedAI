@@ -52,8 +52,9 @@ class History(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
  with app.app_context():
-        db.create_all()
-        print("Database created successfully!")
+    db.create_all()
+     print("Database created successfully!")
+        
      
 @login_manager.user_loader
 def load_user(user_id):
@@ -231,5 +232,6 @@ if __name__ == "__main__":
    
 
     app.run(debug=True)
+
 
 
