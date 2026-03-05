@@ -200,20 +200,9 @@ def history():
                 "date": record.date.strftime("%Y-%m-%d"),
                 "disease": record.disease,
                 "probability": record.probability,
-                "symptom_count": record.symptom_count
+                "symptom_count": record.symptom_count,
+                "symptoms": record.symptoms
             })
-
-    # If empty → sample data
-    else:
-        history_data = [
-            {
-                "date": "2026-03-03",
-                "disease": "Flu",
-                "probability": 82,
-                "symptom_count": 5
-            }
-            
-        ]
 
     return render_template("history.html", history=history_data)
 
@@ -232,6 +221,7 @@ if __name__ == "__main__":
    
 
     app.run(debug=True)
+
 
 
 
