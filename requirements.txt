@@ -8,3 +8,5 @@ gunicorn
 flask_sqlalchemy
 psycopg2
 Flask-Login
+flask-pymongo
+pymongo
