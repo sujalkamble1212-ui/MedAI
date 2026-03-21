@@ -95,7 +95,7 @@ def register():
         existing_user = users_collection.find_one({"username": username})
 
         if existing_user:
-            flash("Username already exists!")
+            flash("Username already exists!","error")
             return redirect(url_for("register"))
 
         users_collection.insert_one({
@@ -103,7 +103,7 @@ def register():
             "password": password
         })
 
-        flash("Registration successful! Please login.")
+        flash("Registration successful! Please login.", "success")
         return redirect(url_for("login"))
 
     return render_template("register.html")
@@ -129,7 +129,7 @@ def login():
             return redirect(url_for("home"))
 
         else:
-            flash("Invalid username or password!")
+            flash("Invalid username or password!","error")
 
     return render_template("login.html")
 
