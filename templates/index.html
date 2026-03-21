@@ -3,6 +3,61 @@
 {% block content %}
 
 <!-- HERO SECTION -->
+<br>
+
+<div id="carouselExampleIndicators" 
+     class="carousel slide" 
+     data-bs-ride="carousel" 
+     data-bs-interval="7000">
+
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    {% for slide in slides %}
+    <button type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="{{ loop.index0 }}"
+            class="{% if loop.first %}active{% endif %}">
+    </button>
+    {% endfor %}
+  </div>
+
+  <!-- Slides -->
+  <div class="carousel-inner">
+
+    {% for slide in slides %}
+    <div class="carousel-item {% if loop.first %}active{% endif %}">
+
+      <picture>
+        <!-- Mobile -->
+        <source media="(max-width: 768px)" 
+                srcset="{{ url_for('static', filename=slide.mobile_image) }}">
+
+        <!-- Desktop -->
+        <img src="{{ url_for('static', filename=slide.image) }}" 
+             class="d-block w-100 carousel-img">
+      </picture>
+
+    </div>   <!-- ✅ THIS WAS MISSING -->
+    {% endfor %}
+
+  </div>
+
+  <!-- Controls 
+  <button class="carousel-control-prev" type="button" 
+          data-bs-target="#carouselExampleIndicators" 
+          data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" 
+          data-bs-target="#carouselExampleIndicators" 
+          data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div> -->
+
+
 <section class="hero">
     <div class="hero-content">
         <h1>Smart AI Disease Prediction</h1>
@@ -11,8 +66,9 @@
             with confidence percentage.
         </p>
 
-        <div class="hero-buttons">
-           {% if current_user.is_authenticated %}
+ <div class="hero-buttons">
+
+{% if current_user.is_authenticated %}
 
 <a href="{{ url_for('dashboard') }}" class="btn-large">Start Analysis</a>
 
@@ -22,7 +78,8 @@
 <a href="{{ url_for('register') }}" class="btn-outline">Create Account</a>
 
 {% endif %}
-        </div>
+
+</div>
     </div>
 </section>
 
@@ -56,13 +113,18 @@
     {% else %}
     <a href="{{ url_for('login') }}" class="btn-large">Get Started</a>
     {% endif %}
+
 </section>
 
 
 <!-- FOOTER -->
-<footer class="footer">
-    © 2026 MedAI | AI Healthcare System
-</footer>
 
+{% include 'footer.html' %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 {% endblock %}
+
+<h2>Test Image</h2>
+<img src="{{ url_for('static', filename='images/l2.png') }}" width="300">
