@@ -1,6 +1,4 @@
-/* ===============================
-   GLOBAL RESET
-================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -146,9 +144,8 @@ body {
 }
 /*dashboard/
 
-/* ===============================
-   HERO SECTION
-================================ */
+/* 
+   HERO SECTION*/
 .hero {
     background:white;
     color: #0f172a;
@@ -213,9 +210,8 @@ body {
     background: #1e3a8a;
     color: white;
 }
-/* ===============================
-   FEATURES SECTION
-================================ */
+/* 
+   FEATURES SECTION */
 .features {
     display: flex;
     justify-content: center;
@@ -251,9 +247,8 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-/* ===============================
-   CTA SECTION
-================================ */
+/* 
+   CTA SECTION */
 .cta {
     background: white;
     color: #0f172a;
@@ -269,9 +264,9 @@ body {
     color: #1e3a8a;
 }
 
-/* ===============================
+/* 
    FOOTER
-================================ */
+ */
 .footer {
     text-align: center;
     padding: 25px 20px;
@@ -280,9 +275,9 @@ body {
     font-size: 14px;
     border-top: none;
 }
-/* ===============================
+/* 
    RESPONSIVE
-================================ */
+*/
 @media (max-width: 768px) {
 
     .hero h1 {
@@ -309,9 +304,7 @@ body {
 
 /*analaze page*/
 
-/* ===============================
-   DASHBOARD CONTAINER
-================================ */
+
 .dashboard-container {
     padding: 60px 20px;
     background: white;
@@ -334,9 +327,9 @@ body {
     font-size: 16px;
 }
 
-/* ===============================
+/* 
    MAIN CARD
-================================ */
+*/
 .card {
     max-width: 900px;
     margin: auto;
@@ -351,9 +344,9 @@ body {
     color: #1e293b;
 }
 
-/* ===============================
+/* 
    SEARCH BOX
-================================ */
+ */
 .search-box {
     width: 100%;
     padding: 12px 16px;
@@ -370,9 +363,9 @@ body {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* ===============================
+/* 
    SYMPTOMS GRID
-================================ */
+ */
 .symptoms-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -404,7 +397,7 @@ body {
     cursor: pointer;
 }
 
-/* Scrollbar */
+
 .symptoms-grid::-webkit-scrollbar {
     width: 6px;
 }
@@ -414,9 +407,9 @@ body {
     border-radius: 10px;
 }
 
-/* ===============================
+/* 
    BUTTONS
-================================ */
+ */
 .btn-group {
     text-align: center;
     margin-bottom: 25px;
@@ -439,9 +432,9 @@ body {
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
 }
 
-/* ===============================
+/* 
    ANALYSIS & RESULT
-================================ */
+ */
 .analysis-text {
     text-align: center;
     font-size: 14px;
@@ -470,14 +463,14 @@ body {
     font-weight: 600;
 }
 
-/* ===============================
+/* 
    PROGRESS BAR
-================================ */
+ */
 .progress {
     background: #e2e8f0;
     border-radius: 30px;
     overflow: hidden;
-    height: 25px;
+    height: 30px;
     margin-top: 20px;
 }
 
@@ -493,9 +486,9 @@ body {
     transition: width 0.5s ease-in-out;
 }
 
-/* ===============================
+/* 
    RESPONSIVE
-================================ */
+ */
 @media (max-width: 768px) {
 
     .card {
@@ -513,9 +506,9 @@ body {
 }
 /*history */
 
-/* ===============================
+/* 
    HISTORY PAGE CONTAINER
-================================ */
+ */
 .container {
     padding: 60px 20px;
     min-height: 100vh;
@@ -530,9 +523,9 @@ body {
     color: #0f172a;
 }
 
-/* ===============================
+/* 
    HISTORY TABLE
-================================ */
+ */
 .history-table {
     width: 100%;
     max-width: 900px;
@@ -588,18 +581,18 @@ body {
     text-align: center;
 }
 
-/* ===============================
+/* 
    EMPTY MESSAGE
-================================ */
+ */
 .container p {
     text-align: center;
     color: #64748b;
     font-size: 16px;
 }
 
-/* ===============================
+/* 
    RESPONSIVE TABLE
-================================ */
+ */
 @media (max-width: 768px) {
 
     .history-table {
@@ -617,7 +610,7 @@ body {
 }
 
 
-/*new css*/
+/*slider*/
 
 .carousel-item {
     height: 500px;
@@ -630,7 +623,7 @@ body {
     object-fit: cover;
 }
 
-/* Show desktop image */
+
 
 
 /* 📱 Mobile View */
