@@ -14,7 +14,71 @@
         
         <p>Join our AI-powered healthcare platform</p>
         <ul>
+            <li>✔ Secure Registration</li><!DOCTYPE html>
+<html>
+<head>
+    <title>Register | Disease Prediction System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- Left Branding -->
+    <div class="auth-left">
+        <h1>Create Account</h1>
+        <p>Join our AI-powered healthcare platform</p>
+        <ul>
             <li>✔ Secure Registration</li>
+            <li>✔ Advanced Predictions</li>
+            <li>✔ Patient Record Tracking</li>
+        </ul>
+    </div>
+
+    <!-- Right Form -->
+    <div class="auth-right">
+        <div class="form-card">
+            <h6>🩺 MedAI</h6>
+            <h2>Register</h2>
+            <p class="subtitle">Create your account</p>
+
+            <!-- ✅ MESSAGE SYSTEM -->
+            <div class="regmsg">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            </div>
+
+            <form method="POST">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <button type="submit">Create Account</button>
+            </form>
+
+            <p class="switch-text">
+                Already have an account?
+                <a href="/login">Login</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
            
             <li>✔ Advanced Predictions</li>
             <li>✔ Patient Record Tracking</li>
