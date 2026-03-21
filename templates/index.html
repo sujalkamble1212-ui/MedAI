@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<!-- HERO SECTION -->
+
 <br>
 
 <div id="carouselExampleIndicators" 
@@ -10,7 +10,7 @@
      data-bs-ride="carousel" 
      data-bs-interval="7000">
 
-  <!-- Indicators -->
+  
   <div class="carousel-indicators">
     {% for slide in slides %}
     <button type="button"
@@ -21,23 +21,23 @@
     {% endfor %}
   </div>
 
-  <!-- Slides -->
+  
   <div class="carousel-inner">
 
     {% for slide in slides %}
     <div class="carousel-item {% if loop.first %}active{% endif %}">
 
       <picture>
-        <!-- Mobile -->
+        
         <source media="(max-width: 768px)" 
                 srcset="{{ url_for('static', filename=slide.mobile_image) }}">
 
-        <!-- Desktop -->
+        
         <img src="{{ url_for('static', filename=slide.image) }}" 
              class="d-block w-100 carousel-img">
       </picture>
 
-    </div>   <!-- ✅ THIS WAS MISSING -->
+    </div>   
     {% endfor %}
 
   </div>
@@ -84,7 +84,7 @@
 </section>
 
 
-<!-- FEATURES -->
+
 <section class="features">
 
     <div class="feature-card">
@@ -105,7 +105,7 @@
 </section>
 
 
-<!-- CTA SECTION -->
+
 <section class="cta">
     <h2>Take Control of Your Health with AI</h2>
     {% if current_user.is_authenticated %}
@@ -117,7 +117,7 @@
 </section>
 
 
-<!-- FOOTER -->
+
 
 {% include 'footer.html' %}
 
