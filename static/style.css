@@ -105,6 +105,7 @@ body {
     /* SHOW TOGGLE */
     .menu-toggle {
         display: block;
+        font-size: 40px; 
     }
 
     /* HIDE LINKS INITIALLY */
@@ -635,7 +636,7 @@ body {
 /* 📱 Mobile View */
 @media (max-width: 768px) {
     .carousel-item {
-        height: 450px;   /* slightly smaller */
+        height: 550px;   /* slightly smaller */
     }
 
     .carousel-img {
