@@ -12,13 +12,13 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-# ================= APP =================
+#secretkey
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "supersecretkey"
 
 
-# ================= MONGODB CONFIG =================
+# MONGODB string 
 
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
@@ -35,7 +35,7 @@ users_collection = mongo.db.users
 history_collection = mongo.db.history
 
 
-# ================= LOGIN MANAGER =================
+#  LOGIN MANAGER 
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -43,7 +43,7 @@ login_manager.login_view = "login"
 login_manager.login_message_category = "error"
 
 
-# ================= USER CLASS =================
+#  USER  
 
 class User(UserMixin):
     def __init__(self, user_id, username):
@@ -62,12 +62,12 @@ def load_user(user_id):
     return None
 
 
-# ================= LOAD ML MODEL =================
+#  ML MODEL 
 
 model = joblib.load("disease_model.pkl")
 
 
-# ================= ROUTES =================
+#  ROUTES 
 
 
 # ---------- HOME ----------
@@ -109,7 +109,7 @@ def register():
     return render_template("register.html")
 
 
-# ---------- LOGIN ----------
+#  LOGIN 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -134,7 +134,7 @@ def login():
     return render_template("login.html")
 
 
-# ---------- ANALYZE PAGE ----------
+#  ANALYZE  
 
 @app.route("/analyze")
 @login_required
@@ -150,7 +150,7 @@ def dashboard():
     )
 
 
-# ---------- PREDICT ----------
+#  PREDICT 
 
 @app.route("/predict", methods=["POST"])
 @login_required
@@ -191,7 +191,7 @@ def predict():
         }), 500
 
 
-# ---------- HISTORY ----------
+#  HISTORY 
 
 @app.route("/history")
 @login_required
@@ -216,7 +216,7 @@ def history():
     return render_template("history.html", history=history_data)
 
 
-# ---------- LOGOUT ----------
+# LOGOUT 
 
 @app.route("/logout")
 @login_required
@@ -225,7 +225,6 @@ def logout():
     return redirect(url_for("home"))
 
 
-# ================= RUN =================
 
 if __name__ == "__main__":
     app.run(debug=True)
