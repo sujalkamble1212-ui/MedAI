@@ -40,6 +40,7 @@ history_collection = mongo.db.history
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
+login_manager.login_message_category = "error"
 
 
 # ================= USER CLASS =================
@@ -73,7 +74,12 @@ model = joblib.load("disease_model.pkl")
 
 @app.route("/")
 def home():
-    return render_template("index.html", user=current_user)
+    slides = [
+        {"image": "images/l1.png" ,"mobile_image": "images/l1mobile.png"},
+        {"image": "images/l2.png" ,"mobile_image": "images/l2mobile.png"},
+        {"image": "images/l3.png" ,"mobile_image": "images/l3mobile.png"}
+    ]
+    return render_template("index.html", user=current_user ,slides=slides)
 
 
 # ---------- REGISTER ----------
