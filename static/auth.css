@@ -190,3 +190,14 @@ button {
         margin: 20px;
     }
 }
+
+.logo1 {
+    display: flex;
+    align-items: center;
+}
+
+.logo1 img {
+    height: 40px;
+}
+
+
