@@ -13,11 +13,11 @@
 
         <h3>Select Symptoms</h3>
 
-        <!-- SEARCH BAR -->
+        
         <input type="text" id="search" placeholder="🔍 Search symptom..."
                onkeyup="filterSymptoms()" class="search-box">
 
-        <!-- SCROLLABLE SYMPTOM LIST -->
+        
         <div class="symptoms-grid" id="symptomList">
             {% for symptom in symptoms %}
             <label class="symptom-item">
@@ -27,19 +27,19 @@
             {% endfor %}
         </div>
 
-        <!-- BUTTONS -->
+    
         <div class="btn-group">
             
             <button onclick="predict()" class="btn-primary">Predict</button>
         </div>
 
-        <!-- RESULTS -->
+        
         <div id="analysis" class="analysis-text"></div>
         <div id="loading" class="hidden loading">🔄 AI analyzing...</div>
 
         <div id="result" class="result-box"></div>
 
-        <!-- PROGRESS BAR -->
+        
         <div class="progress hidden" id="bar">
             <div id="progress"></div>
         </div>
