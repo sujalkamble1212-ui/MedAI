@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Login | Disease Prediction System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
 </head>
 <body>
@@ -10,7 +11,6 @@
 
     <!-- Left Branding Panel -->
     <div class="auth-left">
-      
         <h1>Disease Prediction System</h1>
         <p>AI-Powered Medical Diagnosis Assistance Platform</p>
         <ul>
@@ -23,17 +23,18 @@
     <!-- Right Login Form -->
     <div class="auth-right">
         <div class="form-card">
-          <h6>🩺 MedAI</h6>
+            <h6>🩺 MedAI</h6>
             <h2>Welcome Back</h2>
             <p class="subtitle">Login to continue</p>
 
-         {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="error">{{ message }}</div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
+            <!-- ✅ FIXED MESSAGE SYSTEM -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
 
             <form method="POST">
                 <div class="input-group">
@@ -42,7 +43,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Password </label>
+                    <label>Password</label>
                     <input type="password" name="password" required>
                 </div>
 
