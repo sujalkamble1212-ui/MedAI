@@ -71,3 +71,7 @@ async function predictDisease() {
 }
 
 window.onload = loadSymptoms;
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
