@@ -22,12 +22,17 @@
 
     <!-- Right Form -->
     <div class="auth-right">
+
         <div class="form-card">
-            <h6>🩺 MedAI</h6>
+
+            <h6 class="logo1">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="MedAI Logo">
+            </h6>
+
             <h2>Register</h2>
             <p class="subtitle">Create your account</p>
 
-            <!-- ✅ MESSAGE SYSTEM -->
+            <!-- Messages -->
             <div class="regmsg">
             {% with messages = get_flashed_messages(with_categories=true) %}
               {% if messages %}
@@ -56,6 +61,7 @@
                 Already have an account?
                 <a href="/login">Login</a>
             </p>
+
         </div>
     </div>
 
