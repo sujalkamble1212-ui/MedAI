@@ -4,26 +4,26 @@
     <title>MedAI - AI Disease Prediction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+
 <nav class="navbar">
 
-    <!-- Logo -->
+    
     <h2 class="logo">
         <img src="{{ url_for('static', filename='logo.png') }}" alt="MedAI Logo">
     </h2>
 
  
 
-   <!-- TOGGLE BUTTON (MOBILE) -->
+   
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <!-- LINKS -->
+    
     <div class="nav-links" id="navLinks">
         <a href="/">Home</a>
         <a href="/analyze">Analyze</a>
@@ -39,7 +39,7 @@
 
 </nav>
 
-<!-- PAGE CONTENT -->
+
 <div class="content">
     {% block content %}{% endblock %}
 </div>
