@@ -2,15 +2,14 @@
 
 {% block content %}
 
-
 <br>
+
 
 <div id="carouselExampleIndicators" 
      class="carousel slide" 
      data-bs-ride="carousel" 
      data-bs-interval="7000">
 
-  
   <div class="carousel-indicators">
     {% for slide in slides %}
     <button type="button"
@@ -21,83 +20,59 @@
     {% endfor %}
   </div>
 
-  
   <div class="carousel-inner">
-
     {% for slide in slides %}
     <div class="carousel-item {% if loop.first %}active{% endif %}">
-
       <picture>
-        
         <source media="(max-width: 768px)" 
                 srcset="{{ url_for('static', filename=slide.mobile_image) }}">
-
-        
         <img src="{{ url_for('static', filename=slide.image) }}" 
              class="d-block w-100 carousel-img">
       </picture>
-
     </div>   
     {% endfor %}
-
   </div>
 
-  <!-- Controls 
-  <button class="carousel-control-prev" type="button" 
-          data-bs-target="#carouselExampleIndicators" 
-          data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-
-  <button class="carousel-control-next" type="button" 
-          data-bs-target="#carouselExampleIndicators" 
-          data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-
-</div> -->
+</div>
 
 
-<section class="hero">
-    <div class="hero-content">
+
+<section class="hero fade-top">
+    <div class="hero-content fade-top">
         <h1>Smart AI Disease Prediction</h1>
         <p>
             Analyze symptoms and get instant AI-powered medical insights 
             with confidence percentage.
         </p>
 
- <div class="hero-buttons">
+        <div class="hero-buttons">
 
-{% if current_user.is_authenticated %}
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('dashboard') }}" class="btn-large">Start Analysis</a>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}" class="btn-large">Start Analysis</a>
+            <a href="{{ url_for('register') }}" class="btn-outline">Create Account</a>
+        {% endif %}
 
-<a href="{{ url_for('dashboard') }}" class="btn-large">Start Analysis</a>
-
-{% else %}
-
-<a href="{{ url_for('dashboard') }}" class="btn-large">Start Analysis</a>
-<a href="{{ url_for('register') }}" class="btn-outline">Create Account</a>
-
-{% endif %}
-
-</div>
+        </div>
     </div>
 </section>
 
 
 
-<section class="features">
+<section class="features fade-top">
 
-    <div class="feature-card">
+    <div class="feature-card fade-top">
         <h3>⚡ Instant Prediction</h3>
         <p>Fast and accurate AI medical results in seconds.</p>
     </div>
 
-    <div class="feature-card">
+    <div class="feature-card fade-top">
         <h3>📊 Confidence Score</h3>
         <p>Clear probability percentage for better decisions.</p>
     </div>
 
-    <div class="feature-card">
+    <div class="feature-card fade-top">
         <h3>🔐 Secure System</h3>
         <p>Your health data stays private and protected.</p>
     </div>
@@ -105,17 +80,15 @@
 </section>
 
 
-
-<section class="cta">
+<section class="cta fade-top">
     <h2>Take Control of Your Health with AI</h2>
+
     {% if current_user.is_authenticated %}
     <a href="{{ url_for('dashboard') }}" class="btn-large">Get Started</a>
     {% else %}
     <a href="{{ url_for('login') }}" class="btn-large">Get Started</a>
     {% endif %}
-
 </section>
-
 
 
 
@@ -124,7 +97,22 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-{% endblock %}
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add("show");
+            }, index * 150);
+        }
+    });
+}, {
+    threshold: 0.5
+});
 
-<h2>Test Image</h2>
-<img src="{{ url_for('static', filename='images/l2.png') }}" width="300">
+document.querySelectorAll(".fade-top").forEach(el => {
+    observer.observe(el);
+});
+</script>
+
+{% endblock %}
