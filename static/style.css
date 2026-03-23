@@ -652,3 +652,21 @@ body {
 }
 
 
+.fade-top {
+    transform: translateY(-60px);
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.fade-top.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+.feature-card,
+.hero-content {
+    will-change: transform, opacity;
+}
+
+
